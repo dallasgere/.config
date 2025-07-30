@@ -1,6 +1,6 @@
 -- setting my leaders
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>e", vim.cmd.Explore)
+-- vim.keymap.set("n", "<leader>e", vim.cmd.Explore)
 
 -- these are really cool and make me able to move stuff up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
