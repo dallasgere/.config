@@ -1,0 +1,14 @@
+window-height = 800
+window-width = 800
+
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+
+font-style = bold
+font-size = 14
+font-family = "Hack Nerd Font"
+
+background-opacity = 0.999
+
+theme = "rose-pine"
