@@ -11,4 +11,5 @@ font-family = "Hack Nerd Font"
 
 background-opacity = 0.999
 
-theme = "rose-pine"
+# theme = "rose-pine"
+theme = "tokyonight_moon"
