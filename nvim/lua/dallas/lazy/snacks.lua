@@ -9,12 +9,12 @@ return {
         indent = { enabled = true },
         input = { enabled = true },
         picker = { enabled = true },
-        notifier = { enabled = true, timeout = 5000 },
+        notifier = { enabled = false, timeout = 5000 },
         quickfile = { enabled = true },
         scope = { enabled = true },
-        scroll = { enabled = true },
+        scroll = { enabled = false },
         statuscolumn = { enabled = true },
-        words = { enabled = true },
+        words = { enabled = false },
         lazygit = { enabled = true }
     },
     config = function(_, opts)

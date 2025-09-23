@@ -3,7 +3,20 @@ return {
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
     config = function()
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+        vim.keymap.set('n', '<leader>ff', function()
+            builtin.find_files({
+                hidden = true,
+                no_ignore = false,
+                no_ignore_parent = false,
+                file_ignore_patterns = {
+                    "%.git/.*",
+                    "node_modules/.*",
+                    "%.dist/.*",
+                    "dist/.*",
+                }
+            })
+        end, {})
+        -- vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
         vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
         vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
@@ -18,21 +31,28 @@ return {
         require("telescope").load_extension "file_browser"
 
         require("telescope").setup {
-          extensions = {
-            file_browser = {
-              -- theme = "ivy",
-              -- disables netrw and use telescope-file-browser in its place
-              hijack_netrw = true,
-              mappings = {
-                ["i"] = {
-                  -- your custom insert mode mappings
+            extensions = {
+                file_browser = {
+                    -- theme = "ivy",
+                    -- disables netrw and use telescope-file-browser in its place
+                    hijack_netrw = true,
+                    hidden = true,
+                    file_ignore_patterns = {
+                        "node_modules/.*",
+                        "%.dist/.*",
+                        "dist/.*",
+                        "%.git/.*"
+                    },
+                    mappings = {
+                        ["i"] = {
+                            -- your custom insert mode mappings
+                        },
+                        ["n"] = {
+                            -- your custom normal mode mappings
+                        },
+                    },
                 },
-                ["n"] = {
-                  -- your custom normal mode mappings
-                },
-              },
             },
-          },
         }
     end
 }
