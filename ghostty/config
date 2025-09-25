@@ -4,13 +4,19 @@ window-width = 800
 shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = false
+cursor-color = "ffffff"
+cursor-text = "000000"
 
 font-style = bold
 font-size = 14
 font-family = "Hack Nerd Font"
 
-background-opacity = 0.999
+# background-opacity = 0.80
+# background-blur = 20
 
-# theme = "rose-pine"
-# theme = "tokyonight_moon"
-theme = "catppuccin-mocha"
+# theme = "Rose Pine"
+theme = "TokyoNight Moon"
+# theme = "catppuccin-mocha"
+# theme = "GruvBoxDarkHard"
+# theme = "NvimDark"
+
