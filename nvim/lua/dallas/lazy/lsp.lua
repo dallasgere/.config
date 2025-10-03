@@ -71,12 +71,6 @@ return {
                 severity = nil,
             },
         })
-
-        -- this causes issues with eslint so I am just not messing with it rn and formatting through the cli
-        -- vim.api.nvim_create_autocmd('BufWritePre', {
-        --     pattern = { '*.js', '*.ts', '*.tsx', '*.jsx', '*.html', '*.css' },
-        --     callback = function() vim.lsp.buf.format() end
-        -- })
     end,
 }
 

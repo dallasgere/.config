@@ -4,10 +4,10 @@ return {
     lazy = false,
     opts = {
         bigfile = { enabled = true },
-        dashboard = { enabled = true },
+        dashboard = { enabled = false },
         explorer = { enabled = true },
         indent = { enabled = true },
-        input = { enabled = true },
+        input = { enabled = false },
         picker = { enabled = true },
         notifier = { enabled = false, timeout = 5000 },
         quickfile = { enabled = true },
