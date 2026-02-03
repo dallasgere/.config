@@ -8,7 +8,7 @@ cursor-color = "ffffff"
 cursor-text = "000000"
 
 font-style = bold
-font-size = 14
+font-size = 13
 # font-family = "Hack Nerd Font"
 font-family = "Jetbrains Mono"
 
@@ -16,7 +16,8 @@ font-family = "Jetbrains Mono"
 # background-blur = 20
 
 # theme = "Rose Pine"
-theme = "TokyoNight Moon"
+# theme = "TokyoNight Moon"
+theme = "TokyoNight Night"
 # theme = "catppuccin-mocha"
 # theme = "GruvBoxDarkHard"
 # theme = "NvimDark"
