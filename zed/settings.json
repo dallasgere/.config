@@ -7,14 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-	"telemetry": {
+	"cursor_shape": "bar",
+ "telemetry": {
 		"diagnostics": false,
 		"metrics": false
 	},
 	"ui_font_size": 14,
 	"buffer_font_size": 12,
-	"ui_font_family": "Hack Nerd Font Mono",
-	"buffer_font_family": "Hack Nerd Font Mono",
+	"ui_font_family": "JetBrains Mono",
+	"buffer_font_family": "JetBrains Mono",
 	"theme": {
 		"mode": "system",
 		"light": "One Light",
@@ -75,6 +76,8 @@
 		}
 	},
 	"project_panel": {
-		"auto_reveal_entries": true
+		"indent_size": 10.0,
+  "entry_spacing": "comfortable",
+  "auto_reveal_entries": true
 	}
 }
