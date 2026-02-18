@@ -16,9 +16,9 @@ font-family = "Jetbrains Mono"
 # background-blur = 20
 
 # theme = "Rose Pine"
-# theme = "TokyoNight Moon"
-theme = "TokyoNight Night"
+theme = "TokyoNight Moon"
+# theme = "TokyoNight Night"
 # theme = "catppuccin-mocha"
 # theme = "GruvBoxDarkHard"
-# theme = "NvimDark"
+# theme = "Nvim Dark"
 
