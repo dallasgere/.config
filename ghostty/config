@@ -15,8 +15,8 @@ font-family = "Jetbrains Mono"
 # background-opacity = 0.80
 # background-blur = 20
 
-# theme = "Rose Pine"
-theme = "TokyoNight Moon"
+theme = "Rose Pine"
+# theme = "TokyoNight Moon"
 # theme = "TokyoNight Night"
 # theme = "catppuccin-mocha"
 # theme = "GruvBoxDarkHard"
