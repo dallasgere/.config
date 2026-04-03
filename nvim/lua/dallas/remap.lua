@@ -18,6 +18,6 @@ vim.keymap.set("n", "<C-c>", "<Esc>")
 
 -- lsp
 -- vim.api.nvim_set_keymap("n", "<leader>b", "<cmd>lua vim.lsp.buf.declaration()<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>j", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>n", vim.lsp.buf.rename, { desc = "LSP Rename Symbol" })
+vim.keymap.set("n", "<leader>j", vim.lsp.buf.definition, { noremap = true, silent = true, desc = "LSP Definition" })
+vim.keymap.set("n", "<leader>r", vim.lsp.buf.references, { noremap = true, silent = true, desc = "LSP References" })
+vim.keymap.set("n", "<leader>n", vim.lsp.buf.rename, { desc = "LSP Rename" })

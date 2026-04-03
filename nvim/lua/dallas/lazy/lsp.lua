@@ -1,43 +1,31 @@
 return {
-    "neovim/nvim-lspconfig",
+    "neovim/nvim-lspconfig", -- provides server definitions (cmd, filetypes, root markers)
     dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        "hrsh7th/nvim-cmp",
+        "saghen/blink.cmp",
         "j-hui/fidget.nvim",
     },
     config = function()
-        local cmp = require('cmp')
-        local cmp_lsp = require("cmp_nvim_lsp")
-        local capabilities = vim.tbl_deep_extend(
-            "force",
-            {},
-            vim.lsp.protocol.make_client_capabilities(),
-            cmp_lsp.default_capabilities()
-        )
+        -- fnm default node bin (where vtsls, pyright, html/css servers live)
+        local fnm_bin = vim.fn.expand("~/.local/share/fnm/aliases/default/bin")
+        if vim.fn.isdirectory(fnm_bin) == 1 then
+            vim.env.PATH = fnm_bin .. ":" .. vim.env.PATH
+        end
 
         require("fidget").setup({})
-        require("mason").setup()
-        require("mason-lspconfig").setup({
-            ensure_installed = { "html" },
-            automatic_enable = true,
+
+        -- Apply capabilities globally to all servers
+        vim.lsp.config("*", {
+            capabilities = require("blink.cmp").get_lsp_capabilities(),
         })
 
-        -- Default setup for all installed servers
-        local lspconfig = require("lspconfig")
-        -- HTML
-        vim.lsp.config["html"] = {
-            capabilities = capabilities,
-            filetypes = { "html" },
-        }
-        
-        -- Lua
-        vim.lsp.config["lua_ls"] = {
-            capabilities = capabilities,
+        -- Per-server overrides (only what differs from lspconfig defaults)
+        vim.lsp.config("vtsls", {
+            settings = {
+                vtsls = { autoUseWorkspaceTsdk = true },
+            },
+        })
+
+        vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {
                     runtime = { version = "Lua 5.1" },
@@ -46,24 +34,18 @@ return {
                     },
                 },
             },
-        }
-
-        local cmp_select = { behavior = cmp.SelectBehavior.Select }
-        cmp.setup({
-            snippet = {},
-            mapping = cmp.mapping.preset.insert({
-                ['<S-TAB>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<TAB>']  = cmp.mapping.select_next_item(cmp_select),
-                ['<CR>']   = cmp.mapping.confirm({ select = true }),
-                ["<C-Space>"] = cmp.mapping.complete(),
-            }),
-            sources = cmp.config.sources({ { name = 'nvim_lsp' } }, { { name = 'buffer' } })
         })
+
+        vim.lsp.enable({ "vtsls", "html", "cssls", "biome", "pyright", "lua_ls" })
 
         vim.diagnostic.config({
             float = {
-                focusable = false, style = "minimal", border = "rounded",
-                source = "always", header = "", prefix = "",
+                focusable = false,
+                style = "minimal",
+                border = "rounded",
+                source = "always",
+                header = "",
+                prefix = "",
             },
             virtual_text = {
                 spacing = 2,
@@ -73,4 +55,3 @@ return {
         })
     end,
 }
-
