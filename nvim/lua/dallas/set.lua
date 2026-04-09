@@ -8,16 +8,6 @@ vim.opt.relativenumber = true
 -- hiding default status line
 vim.opt.showmode = false
 
--- setting indent for certain files
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "js", "ts", "jsx", "tsx", "css", "html" },
-    callback = function()
-        vim.opt_local.tabstop = 4
-        vim.opt_local.shiftwidth = 4
-        vim.opt_local.expandtab = true
-    end,
-})
-
 -- cursor options
 -- vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 -- vim.opt.guicursor = "n-v-c-i-ci-ve:ver25,r-cr-o:hor20"
@@ -49,9 +39,6 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
-
--- setting the leader key to space bar
-vim.g.mapleader = " "
 
 -- adjusting netrw
 vim.g.netrw_banner = 0

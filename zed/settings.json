@@ -7,7 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-	"cursor_shape": "bar",
+	"gutter": {
+  "folds": false
+ },
+ "cursor_shape": "bar",
  "telemetry": {
 		"diagnostics": false,
 		"metrics": false
@@ -19,9 +22,9 @@
 	"theme": {
 		"mode": "system",
 		"light": "One Light",
-		"dark": "One Dark"
+		"dark": "Rosé Pine"
 	},
-	"autosave": "on_focus_change",
+	"autosave": {"after_delay": {"milliseconds": 200}},
 	"languages": {
 		"JavaScript": {
 			"formatter": { "language_server": { "name": "biome" } },
