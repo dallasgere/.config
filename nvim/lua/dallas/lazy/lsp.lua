@@ -38,6 +38,14 @@ return {
 
         vim.lsp.enable({ "vtsls", "html", "cssls", "biome", "pyright", "lua_ls" })
 
+        vim.keymap.set("n", "K", function()
+            vim.lsp.buf.hover({
+                border = "rounded",
+                focusable = true,
+                max_width = 80,
+            })
+        end)
+
         vim.diagnostic.config({
             float = {
                 focusable = false,

@@ -5,15 +5,19 @@ return {
     opts = {
         bigfile = { enabled = true },
         dashboard = { enabled = true },
-        explorer = {
-            enabled = true,
-            replace_netrw = true,
-            trash = true,
-        },
+        -- using oil nvim instead of the snacks explorer for now
+        -- explorer = {
+        --     enabled = true,
+        --     replace_netrw = true,
+        --     trash = true,
+        -- },
         picker = {
             enabled = true,
             -- Layout presets — uncomment one at a time to try:
-            layout = { preset = "ivy" },        -- bottom bar, results + preview side by side
+            layout = {
+                preset = "ivy", -- bottom bar, results + preview side by side
+                auto_hide = { "input" }
+            },
             -- layout = { preset = "ivy_split" }, -- like ivy but preview opens in main window
             -- layout = { preset = "telescope" }, -- classic telescope: results left, preview right, input at bottom
             -- layout = { preset = "default" },   -- floating: input+list left, preview right
@@ -27,6 +31,14 @@ return {
                 grep = {
                     -- treat input as literal text so special chars like ( ) [ don't break search
                     args = { "--fixed-strings" },
+                },
+            },
+            win = {
+                list = {
+                    wo = {
+                        number = true,         -- Show absolute line number on current line
+                        relativenumber = true, -- Show relative numbers on other lines
+                    },
                 },
             },
         },
@@ -64,17 +76,16 @@ return {
         end, { desc = "Open LazyGit with snacks" })
 
         -- explorer
-        vim.keymap.set('n', '<leader>e', function()
-            Snacks.explorer({ reveal = true })
-        end, { desc = "Open explorer with snacks" })
-
-        -- File browser equivalents (migrated from telescope-file-browser)
-        vim.keymap.set('n', '<space>w', function()
-            Snacks.explorer({ cwd = vim.fn.expand('%:p:h'), reveal = true })
-        end, { noremap = true, desc = "Explorer (current file dir)" })
-        vim.keymap.set('n', '<space>d', function()
-            Snacks.explorer()
-        end, { desc = "Explorer (cwd)" })
+        -- vim.keymap.set('n', '<leader>e', function()
+        --     Snacks.explorer({ reveal = true })
+        -- end, { desc = "Open explorer with snacks" })
+        --
+        -- -- File browser equivalents (migrated from telescope-file-browser)
+        -- vim.keymap.set('n', '<space>w', function()
+        --     Snacks.explorer({ cwd = vim.fn.expand('%:p:h'), reveal = true })
+        -- end, { noremap = true, desc = "Explorer (current file dir)" })
+        -- vim.keymap.set('n', '<space>d', function()
+        --     Snacks.explorer()
+        -- end, { desc = "Explorer (cwd)" })
     end,
 }
-
