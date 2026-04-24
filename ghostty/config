@@ -10,7 +10,7 @@ cursor-text = "000000"
 font-style = bold
 font-size = 13
 # font-family = "Hack Nerd Font"
-font-family = "Jetbrains Mono"
+font-family = "Jetbrains Mono NL"
 
 # background-opacity = 0.80
 # background-blur = 20
