@@ -1,9 +1,11 @@
 return {
     "saghen/blink.cmp",
-    build = "cargo build --release",
+    dependencies = {
+        'saghen/blink.lib',
+    },
     opts = {
         keymap = {
-            preset = "none",
+            preset        = "none",
             ["<S-TAB>"]   = { "select_prev", "fallback" },
             ["<TAB>"]     = { "select_next", "fallback" },
             ["<CR>"]      = { "accept", "fallback" },
@@ -13,4 +15,7 @@ return {
             default = { "lsp", "buffer", "path" },
         },
     },
+    build = function()
+        require('blink.cmp').build():wait(60000)
+    end,
 }
