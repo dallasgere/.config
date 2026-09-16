@@ -12,10 +12,8 @@ font-size = 13
 # font-family = "Hack Nerd Font"
 font-family = "Jetbrains Mono NL"
 
-background-opacity = 0.80
-background-blur = 80
+# background-opacity = 0.90
+# background-blur = macos-glass-regular
 
-# theme = "Rose Pine"
 theme = "TokyoNight Moon"
-# theme = "TokyoNight Night"
 
