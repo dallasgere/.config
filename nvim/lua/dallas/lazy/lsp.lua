@@ -36,7 +36,7 @@ return {
             },
         })
 
-        vim.lsp.enable({ "vtsls", "html", "cssls", "biome", "pyright", "lua_ls" })
+        vim.lsp.enable({ "vtsls", "html", "cssls", "biome", "pyrefly", "lua_ls" })
 
         vim.keymap.set("n", "K", function()
             vim.lsp.buf.hover({
