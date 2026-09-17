@@ -15,6 +15,7 @@ return {
             default = { "lsp", "buffer", "path" },
         },
     },
+    version = '*',
     build = function()
         require('blink.cmp').build():pwait()
     end
