@@ -18,10 +18,19 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c", "cpp" },
+    callback = function()
+        vim.opt_local.tabstop = 2
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.expandtab = true
+    end,
+})
+
 -- cursor options
 -- vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 -- vim.opt.guicursor = "n-v-c-i-ci-ve:ver25,r-cr-o:hor20"
-vim.opt.guicursor=""
+vim.opt.guicursor = ""
 
 -- tab options
 vim.opt.tabstop = 4
